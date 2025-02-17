@@ -74,4 +74,42 @@ yesButton.addEventListener("click", function () {
     </div>
   `;
   document.body.style.overflow = "hidden";
+
+  // 触发烟花效果
+  // confetti({
+  //   particleCount: 100, // 烟花粒子数量
+  //   spread: 70, // 烟花的扩散范围
+  //   origin: { y: 0.6 }, // 烟花从页面中间偏下的位置开始
+  //   colors: ['#ff9a9e', '#fad0c4', '#a18cd1', '#fbc2eb'], // 烟花的颜色
+  //   shapes: ['circle', 'square'], // 烟花的形状
+  //   scalar: 1.2, // 烟花粒子的大小
+  // });
+
+  // 持续触发烟花效果
+  const duration = 5 * 1000; // 烟花持续5秒
+  const animationEnd = Date.now() + duration;
+  const frame = () => {
+    const timeLeft = animationEnd - Date.now();
+
+    if (timeLeft <= 0) return;
+
+    const particleCount = 10 * (timeLeft / duration);
+    confetti({
+      particleCount: particleCount,
+      spread: 60,
+      origin: { y: 0.7 },
+      colors: ['#ff9a9e', '#fad0c4', '#a18cd1', '#fbc2eb'],
+      shapes: ['circle', 'square', 'triangle'],
+      scalar: 1,
+      size: [1, 5],
+      max: 200,
+      gravity: 1,
+      startVelocity: 50,
+      decay: 0.9
+    });
+
+    requestAnimationFrame(frame);
+  };
+
+  frame();
 });
