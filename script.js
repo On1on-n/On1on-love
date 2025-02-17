@@ -57,7 +57,8 @@ noButton.addEventListener("click", function () {
 });
 
 // Yes 按钮点击后，进入表白成功页面
-const loveTest = `!!!喜欢你!!! ( >᎑<)♡︎ᐝ  ${safeUsername}  ♡︎ᐝ(>᎑< )`;
+const loveTest = `!!!喜欢你!!!`;
+const loveTest1 = `( >᎑<)♡︎ᐝ${safeUsername}  ♡︎ᐝ(>᎑< )`
 
 yesButton.addEventListener("click", function () {
   // 创建音频元素并播放音频
@@ -68,6 +69,7 @@ yesButton.addEventListener("click", function () {
   document.body.innerHTML = `
     <div class="yes-screen">
         <h1 class="yes-text">${loveTest}</h1>
+        <h1 class="yes-text">${loveTest1}</h1>
         <img src="images/hug.png" alt="拥抱" class="yes-image">
     </div>
   `;
