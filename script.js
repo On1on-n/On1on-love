@@ -60,14 +60,16 @@ noButton.addEventListener("click", function () {
 const loveTest = `!!!喜欢你!!! ( >᎑<)♡︎ᐝ  ${safeUsername}  ♡︎ᐝ(>᎑< )`;
 
 yesButton.addEventListener("click", function () {
+  // 创建音频元素并播放音频
+  let audio = new Audio('./music/M500002CFq9C28OuHD.mp3');  // 路径根据实际情况设置
+  audio.play();  // 播放音频
+
   // 先创建基础 HTML 结构
   document.body.innerHTML = `
-        <div class="yes-screen">
-            <h1 class="yes-text">${loveTest}</h1>
-            <img src="images/hug.png" alt="拥抱" class="yes-image">
-        </div>
-    `;
-
-  // 禁止滚动，保持页面美观
+    <div class="yes-screen">
+        <h1 class="yes-text">${loveTest}</h1>
+        <img src="images/hug.png" alt="拥抱" class="yes-image">
+    </div>
+  `;
   document.body.style.overflow = "hidden";
 });

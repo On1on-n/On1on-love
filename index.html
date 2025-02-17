@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>李宝玉，可以成为我的恋人吗？</title>
+    <title>追追追</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <!-- 背景音乐 -->
+    <audio id="backgroundMusic">
+        <source src="./music/M500002IpWvf4UvQS1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- 显示开始按钮 -->
+    <div id="startScreen" class="container">
+        <h1>要正式开始追求宝玉了吗？</h1>
+        <h1>好紧张啊～ (⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄</h1>
+        <button id="startButton" style="background-color: #d4818e;
+    color: white;">我已经准备好了！٩(◕‿◕｡)۶</button>
+    </div>
+
+    <!-- 显示互动内容（初始时隐藏） -->
+    <div id="interactiveContent" class="container" style="display:none;">
         <img id="mainImage" src="images/heart.png" alt="爱心">
         <h1 id="question">可以成为我的恋人吗？</h1>
         <div class="buttons">
@@ -17,5 +32,20 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script>
+        // 当点击开始按钮时，播放音乐并显示其他内容
+        document.getElementById("startButton").addEventListener("click", function() {
+            // 播放背景音乐
+            let audio = document.getElementById('backgroundMusic');
+            audio.play();  // 播放音频
+
+            // 隐藏开始按钮
+            document.getElementById("startScreen").style.display = "none";
+
+            // 显示互动内容
+            document.getElementById("interactiveContent").style.display = "block";
+        });
+    </script>
 </body>
 </html>
